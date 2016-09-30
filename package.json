@@ -1,0 +1,30 @@
+{
+  "name": "sendgmail",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sendEmail.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tianxiao Yang",
+  "license": "MIT",
+  "dependencies": {
+    "Base64": "^1.0.0",
+    "body-parser": "^1.15.2",
+    "cheerio": "^0.19.0",
+    "child_process": "^1.0.2",
+    "express": "^4.14.0",
+    "express-handlebars": "^3.0.0",
+    "gapi": "0.0.3",
+    "google-auth-library": "^0.9.8",
+    "googleapis": "^13.0.0",
+    "handlebars": "^4.0.5",
+    "jquery": "^3.1.1",
+    "js-base64": "^2.1.9",
+    "mongodb": "^2.2.10",
+    "phantomjs": "^2.1.7",
+    "request": "^2.65.0",
+    "url-parse": "^1.0.5"
+  }
+}
