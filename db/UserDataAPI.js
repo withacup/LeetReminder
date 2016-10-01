@@ -70,12 +70,12 @@ let UserDataAPI = {
 	}
 }
 exports = module.exports = UserDataAPI;
-UserDataAPI.getAllUser().then(res => {
-	console.log('UserDataAPI.js says : all users {');
-	console.log(res);
-	console.log('}')
-})
-UserDataAPI.cleanUpAllUserData();
+// UserDataAPI.getAllUser().then(res => {
+// 	console.log('UserDataAPI.js says : all users {');
+// 	console.log(res);
+// 	console.log('}')
+// })
+// UserDataAPI.cleanUpAllUserData();
 // 	.then((res) => {
 // 		console.log(res);
 // 		UserDataAPI.getAllUser().then(res => {

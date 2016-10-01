@@ -6,6 +6,8 @@ const settings = require('./config');
 const configRouters = require('./routes/')
 const exphbs = require('express-handlebars');
 const Handlebars = require('handlebars');
+// const https = require('https');
+const fs = require('fs');
 
 const handlebarsInstance = exphbs.create({
     defaultLayout: 'main',
@@ -44,6 +46,10 @@ app.use(rewriteUnsupportedBrowserMethods);
 
 configRouters(app);
 
+// https.createServer({
+//     key: fs.readFileSync('./https/rootCA.key'),
+//     cert: fs.readFileSync('./https/rootCA.pem')
+// }, app)
 app.listen(settings.serverConfig.port, settings.serverConfig.hostname, () => {
     console.log('server successfully started!');
     console.log(`server running at: http://${settings.serverConfig.hostname}:${settings.serverConfig.port}`);
