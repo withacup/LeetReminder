@@ -1,5 +1,5 @@
 let prevNumProblems = 0;
-let minutes = 1,
+let minutes = 0.1,
     the_interval = minutes * 60 * 1000;
 const userDataAPI = require('../db/UserDataAPI');
 const auth = require('./auth');
@@ -8,7 +8,7 @@ const path = require('path');
 const childProcess = require('child_process');
 const phantomjs = require('phantomjs');
 const binPath = phantomjs.path;
-
+console.log(__dirname);
 var childArgs = [
     path.join(__dirname, '/phantomjs_craw.js')
 ]

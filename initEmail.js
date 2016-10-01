@@ -1,6 +1,6 @@
 const auth = require('./actions/auth');
 const actions = require('./actions/actions');
-
+const api = require('./db/UserDataAPI.js');
 auth().then(a => {
     let email = {
         from: 'newproblemreminder@gmail.com',
