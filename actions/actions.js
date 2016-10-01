@@ -1,9 +1,9 @@
-var actions = exports = module.exports;
+// var actions = exports = module.exports;
 const gmail = require('googleapis').gmail('v1');
 // const Base64 = require('/Users/yang/Dropbox/computer\ science/myProjects/nodejs/sendEmailUsingGmailApi/node_modules/js-base64/base64.js').Base64;
 // const gapi = require('googleapis');
 // console.log(google)
-
+let actions = {};
 actions.listLabels = (auth) => {
     gmail.users.labels.list({
         auth: auth,
@@ -50,11 +50,12 @@ function makeBody(to, from, subject, message) {
 //http://stackoverflow.com/questions/34546142/gmail-api-for-sending-mails-in-node-js
 actions.sendMessage = (auth, email) => {
     return new Promise((fulfill, reject) => {
+        // console.log('sending a mail to :', email.to);
         if (email === undefined) {
             console.log('email is not defined')
             email = {
                 from: 'tyang8@stevens.edu',
-                to: 'yangtianxiao123@gmail.com',
+                to: 'tyang8@stevens.edu',
                 subject: "untitled",
                 content: "This is the default message from Tianxiao Yang's gmail"
             }
@@ -72,3 +73,5 @@ actions.sendMessage = (auth, email) => {
         });
     })
 }
+
+exports = module.exports = actions;
