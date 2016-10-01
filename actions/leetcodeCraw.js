@@ -7,7 +7,7 @@ const actions = require('./actions');
 const path = require('path');
 const childProcess = require('child_process');
 const phantomjs = require('phantomjs');
-const binPath = phantomjs.path;
+const binPath = '/usr/LeetReminder/node_modules/phantomjs/lib/phantom/bin/phantomjs';
 console.log(__dirname);
 var childArgs = [
     path.join(__dirname, '/phantomjs_craw.js')
