@@ -2,7 +2,7 @@ exports = module.exports
 
 exports.mongoConfig = {
 	serverUrl: "mongodb://localhost:27017/",
-	database: "lab6_recipes"
+	database: "LeetCodeReminder"
 }
 
 exports.serverConfig = {

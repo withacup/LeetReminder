@@ -1,0 +1,5 @@
+leetremindercomfirm@gmail.com :
+	To send comfirmation email to new user.
+
+newproblemreminder@gmail.com :
+	To send reminder email to user in database.

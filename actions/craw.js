@@ -1,7 +1,7 @@
 const pageToVisit = "https://leetcode.com/problemset/algorithms/";
 const page = require('webpage').create();
 const fs = require('fs');
-const path = 'theNumberOfProblems.txt';
+// const path = 'theNumberOfProblems.txt';
 // console.log('The default user agent is ' + page.settings.userAgent);
 page.settings.userAgent = 'SpecialAgent';
 page.open(pageToVisit, function(status) {
@@ -12,7 +12,6 @@ page.open(pageToVisit, function(status) {
 			return document.getElementById('welcome').textContent;
 		});
 		var res = ua.split(' ');
-		// fs.write(path, res[4], 'w');
 		console.log(res[4]);
 	}
 	phantom.exit();

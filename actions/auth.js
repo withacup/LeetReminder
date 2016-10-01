@@ -15,7 +15,7 @@ module.exports = () => {
         var TOKEN_PATH = TOKEN_DIR + 'gmail-nodejs-quickstart.json';
 
         // Load client secrets from a local file.
-        fs.readFile('client_secret.json', function processClientSecrets(err, content) {
+        fs.readFile('/Volumes/YangFlashCard/LeetReminder/client_secrets/client_secret_leetcode.json', function processClientSecrets(err, content) {
             if (err) {
                 console.log('Error loading client secret file: ' + err);
                 return;
@@ -24,10 +24,10 @@ module.exports = () => {
             // Gmail API.
             console.log('authorizing...')
             authorize(JSON.parse(content))
-            .then(oauth2Client => {
-                fulfill(oauth2Client);
-                console.log('authorize complete')
-            });
+                .then(oauth2Client => {
+                    console.log('authorize complete');
+                    fulfill(oauth2Client);
+                });
         });
 
         /**
@@ -39,20 +39,21 @@ module.exports = () => {
          */
         function authorize(credentials) {
             return new Promise((fulfill, reject) => {
-                var clientSecret = credentials.installed.client_secret;
-                var clientId = credentials.installed.client_id;
-                var redirectUrl = credentials.installed.redirect_uris[0];
-                var auth = new googleAuth();
-                var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
-
+                try {
+                    var clientSecret = credentials.installed.client_secret;
+                    var clientId = credentials.installed.client_id;
+                    var redirectUrl = credentials.installed.redirect_uris[0];
+                    var auth = new googleAuth();
+                    var oauth2Client = new auth.OAuth2(clientId, clientSecret, redirectUrl);
+                } catch (err) {
+                    reject(err);
+                }
                 // Check if we have previously stored a token.
                 fs.readFile(TOKEN_PATH, function(err, token) {
                     if (err) {
                         fulfill(getNewToken(oauth2Client));
                     } else {
                         oauth2Client.credentials = JSON.parse(token);
-                        // callback(oauth2Client);
-                        // callback(oauth2Client);
                         fulfill(oauth2Client);
                     }
                 });
