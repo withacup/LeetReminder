@@ -1,5 +1,5 @@
 let prevNumProblems = 0;
-let minutes = 0.1,
+let minutes = 1,
     the_interval = minutes * 60 * 1000;
 const userDataAPI = require('../db/UserDataAPI');
 const auth = require('./auth');
@@ -31,7 +31,11 @@ module.exports = () => {
             .then(num => {
                 console.log('Current number of problems in leetcode [Algorithm] :' + num);
                 let curNumProblems = parseInt(num);
-                if (curNumProblems > prevNumProblems) {
+		if (prevNumProblems == 0) {
+			prevNumProblems = curNumProblems;
+			return Promise.reject('Initiating the crawer...');
+		}
+                else if (curNumProblems > prevNumProblems) {
                     prevNumProblems = curNumProblems;
                     console.log('Number of Problems has been updated!');
                     return auth();

@@ -53,6 +53,20 @@ let UserDataAPI = {
 				})
 		})
 	},
+	removeOneUser: (email) => {
+		return new Promise((fulfill, reject) => {
+			userData()
+			.then(col => {
+				return col.remove({ _id: email});
+			})
+			.then(res => {
+				fulfill(res);
+			})
+			.catch(err => {
+				reject(err);
+			})
+		})
+	},
 	cleanUpAllUserData: () => {
 		console.log('warning: droping colllection');
 		return new Promise((fulfill, reject) => {

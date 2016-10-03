@@ -15,7 +15,7 @@ module.exports = () => {
         var TOKEN_PATH = TOKEN_DIR + 'gmail-nodejs-quickstart.json';
 
         // Load client secrets from a local file.
-        fs.readFile('/Volumes/YangFlashCard/LeetReminder/client_secrets/client_secret_leetcode.json', function processClientSecrets(err, content) {
+        fs.readFile(__dirname + '/../client_secrets/client_secret_leetcode.json', function processClientSecrets(err, content) {
             if (err) {
                 console.log('Error loading client secret file: ' + err);
                 return;

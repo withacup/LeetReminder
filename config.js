@@ -6,6 +6,6 @@ exports.mongoConfig = {
 }
 
 exports.serverConfig = {
-	hostname : 'localhost',
-	port: 3000
+	hostname : 'ec2-52-41-103-175.us-west-2.compute.amazonaws.com',
+	port: 80
 }

@@ -1,4 +1,5 @@
 const startCrawing = require('./actions/leetcodeCraw');
+const path = require('path');
 const express = require('express');
 const bodyParser = require("body-parser");
 const app = express();
@@ -43,7 +44,7 @@ app.use(bodyParser.urlencoded({
     extended: true
 }));
 app.use(rewriteUnsupportedBrowserMethods);
-
+app.set('views', path.join(__dirname, 'views/'));
 configRouters(app);
 
 // https.createServer({
